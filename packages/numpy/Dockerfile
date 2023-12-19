@@ -7,12 +7,14 @@
 ARG BASE_IMAGE
 FROM ${BASE_IMAGE}
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-		  python3-numpy \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
-    
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends \
+# 		  python3-numpy \
+#     && rm -rf /var/lib/apt/lists/* \
+#     && apt-get clean
+
+RUN pip3 install numpy
+
 # https://github.com/numpy/numpy/issues/18131#issuecomment-755438271
 ENV OPENBLAS_CORETYPE=ARMV8
 

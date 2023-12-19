@@ -39,7 +39,7 @@ RUN mkdir faiss/build && \
 	-DFAISS_ENABLE_PYTHON=ON \
 	-DFAISS_ENABLE_RAFT=OFF \
 	-DCMAKE_CUDA_ARCHITECTURES=${CUDA_ARCHITECTURES} \
-	-DPYTHON_EXECUTABLE=/usr/bin/python3 \
+	-DPYTHON_EXECUTABLE=/miniconda3/bin/python3 \
 	../ && \
     make -j$(nproc) faiss && \
     make install

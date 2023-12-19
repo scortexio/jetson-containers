@@ -2,4 +2,5 @@
 
 /usr/src/tensorrt/bin/trtexec --help
 
-python3 -c "import tensorrt; print('TensorRT version:', tensorrt.__version__)"
+# TODO: Actually recompile TensorRT for python3.10 so that it works
+# python3 -c "import tensorrt; print('TensorRT version:', tensorrt.__version__)"

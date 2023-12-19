@@ -9,6 +9,7 @@ ARG BASE_IMAGE
 FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV PATH="/miniconda3/bin:${PATH}"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -16,7 +17,12 @@ RUN apt-get update && \
 		  python3-pip \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
-    
+
+RUN mkdir -p /miniconda3 && \
+    wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.10.0-1-Linux-aarch64.sh -O /miniconda3/miniconda.sh && \
+	bash /miniconda3/miniconda.sh -b -u -p /miniconda3/ && \
+	rm /miniconda3/miniconda.sh
+
 RUN which pip3 && pip3 --version && \
     python3 -m pip install --upgrade pip
 
